@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # 1. Your Custom Built Site (Using Volumes for live editing)
+  portfolio-main:
+    image: nginx:latest
+    ports:
+      - "8085:80"
+    volumes:
+      - ./prod-site:/usr/share/nginx/html
+
+  # 2. Your Development Sandbox (On a different port)
+  portfolio-dev:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dev-site:/usr/share/nginx/html
+
+  # 3. The "Cloud" Version (Pulling the image you pushed to Docker Hub)
+  portfolio-cloud:
+    image: sajeel007/my-web-page:v1
+    ports:
+      - "9000:80"
