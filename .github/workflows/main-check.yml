@@ -1,0 +1,13 @@
+name: Docker Compose Check  # The name of the robot
+
+on: [push]  # Tell the robot to wake up every time you PUSH
+
+jobs:
+  check-config:
+    runs-on: ubuntu-latest  # The robot uses a fresh Linux server in the cloud
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Step 1: Robot copies your code
+
+      - name: Verify Compose File
+        run: docker compose config  # Step 2: Robot checks if your YAML is broken
