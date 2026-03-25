@@ -6,6 +6,9 @@ services:
     image: nginx:latest
     ports:
       - "8085:80"
+    enviornment:
+      - DATABASE_PASS=${DB_PASSWORD}
+      - ADMIN_USER=${USER_NAME}
     volumes:
       - ./prod-site:/usr/share/nginx/html
 
