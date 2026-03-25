@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # 1. Your Custom Built Site (Using Volumes for live editing)
   portfolio-main:
-    image: nginx:latest
+    image nginx:latest
     ports:
       - "8085:80"
     environment:
