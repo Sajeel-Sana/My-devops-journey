@@ -1,3 +1,6 @@
+[![Docker Compose Check](https://github.com/Sajeel-Sana/My-devops-journey/actions/workflows/main-check.yml/badge.svg)](https://github.com/Sajeel-Sana/My-devops-journey/actions/workflows/main-check.yml)
+
+
 Title: My First Dockerized Infrastructure.
 
 The Tech: Linux (WSL2), Docker, Docker Compose, Nginx.
