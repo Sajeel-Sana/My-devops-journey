@@ -1,27 +1,11 @@
-version: '3.8'
-
 services:
-  # 1. Your Custom Built Site (Using Volumes for live editing)
-  portfolio-main:
-    image: nginx:latest
-    ports:
-      - "8085:80"
-    environment:
-      - DATABASE_PASS=${DB_PASSWORD}
-      - ADMIN_USER=${USER_NAME}
-    volumes:
-      - ./prod-site:/usr/share/nginx/html
-
-  # 2. Your Development Sandbox (On a different port)
-  portfolio-dev:
-    image: nginx:latest
+  web:
+    image: sajeel007/devops-challenge:latest # Use YOUR image!
     ports:
       - "8080:80"
-    volumes:
-      - ./dev-site:/usr/share/nginx/html
 
-  # 3. The "Cloud" Version (Pulling the image you pushed to Docker Hub)
-  portfolio-cloud:
-    image: sajeel007/my-web-page:v1
-    ports:
-      - "9000:80"
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 # Checks for updates every 30 seconds (aggressive for testing!)
