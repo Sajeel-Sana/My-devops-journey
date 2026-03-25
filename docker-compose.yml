@@ -1,6 +1,6 @@
 services:
   web:
-    image: sajeel007/devops-challenge:latest # Use YOUR image!
+    image: sajeel007/devops-challenge:latest
     ports:
       - "8080:80"
 
